@@ -114,6 +114,8 @@ class Contact {
 }
 
 let addressBookArray = new Array();
+let contactsCityMap = new Map();
+let contactsStateMap = new Map();
 
 function contactExists(firstName, lastName) {
     return addressBookArray.some(contact => contact.firstName == firstName && contact.lastName == lastName);
@@ -169,20 +171,32 @@ function getCountOfContacts(count) {
     return count;
 }
 
-function searchContactByCity(city) {
-    return addressBookArray.filter((contact) => contact.city == city);
-  }
+function searchContactByCity(firstName, city) {
+    return addressBookArray.filter((contact) => contact.city == city && contact.firstName == firstName);
+}
   
-function searchContactByState(state) {
+function searchContactByState(firstName, state) {
+    return addressBookArray.filter((contact) => contact.state == state && contact.firstName == firstName);
+}
+
+function viewContactsByCity(city){
+    return addressBookArray.filter((contact) => contact.city == city);
+}
+
+function viewContactsByState(state){
     return addressBookArray.filter((contact) => contact.state == state);
-  }
+}
 
 let firstContact = new Contact("Devika", "Karpe", "#3ac910", "Pune", "Maharashtra", "411 028", "91 9481448524", "devu@gmail.com");
 let secondContact = new Contact("Aarti", "Shinde", "#6ac810", "Dadar", "Maharashtra", "312 098", "91 9898989897", "shindea@gmail.com");
+let thirdContact = new Contact("Rupali", "More", "#8105bc", "Banglore", "Karnataka", "550 864", "91 9485768574", "rupali@gmail.com");
+let fourthContact = new Contact("David", "Rose", "#8105bc", "SchittsCreek", "Canada", "550 864", "91 9465837465", "david@gmail.com");
 
 try {
     addressBookArray.push(firstContact);
     addressBookArray.push(secondContact);
+    addressBookArray.push(thirdContact);
+    addressBookArray.push(fourthContact);
 } catch (e) {
     console.error(e);
 }
@@ -209,8 +223,15 @@ try {
 }
 console.log(addressBookArray);
 
-console.log("\nSearch Contact By City");
-console.log(searchContactByCity("Dadar"));
+console.log("\nSearch Aarti In City - Dadar");
+console.log(searchContactByCity("Aarti", "Dadar"));
 
-console.log("\nSearch Contact By State");
-console.log(searchContactByState("Maharashtra"));
+console.log("\nSearch Aarti In State - Maharashtra");
+console.log(searchContactByState("Aarti", "Maharashtra"));
+
+
+console.log("\nView Contacts By City : Banglore \n" );
+console.log(viewContactsByCity("Banglore"));
+
+console.log("\nView Contacts By State : Karnataka \n" );
+console.log(viewContactsByState("Karnataka"));

@@ -169,6 +169,14 @@ function getCountOfContacts(count) {
     return count;
 }
 
+function searchContactByCity(city) {
+    return addressBookArray.filter((contact) => contact.city == city);
+  }
+  
+function searchContactByState(state) {
+    return addressBookArray.filter((contact) => contact.state == state);
+  }
+
 let firstContact = new Contact("Devika", "Karpe", "#3ac910", "Pune", "Maharashtra", "411 028", "91 9481448524", "devu@gmail.com");
 let secondContact = new Contact("Aarti", "Shinde", "#6ac810", "Dadar", "Maharashtra", "312 098", "91 9898989897", "shindea@gmail.com");
 
@@ -200,3 +208,9 @@ try {
     console.error(e);
 }
 console.log(addressBookArray);
+
+console.log("\nSearch Contact By City");
+console.log(searchContactByCity("Dadar"));
+
+console.log("\nSearch Contact By State");
+console.log(searchContactByState("Maharashtra"));

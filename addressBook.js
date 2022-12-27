@@ -187,10 +187,18 @@ function viewContactsByState(state){
     return addressBookArray.filter((contact) => contact.state == state);
 }
 
+function getCountOfContactsByCity(city){
+    return addressBookArray.filter((contact) => contact.city == city).length;
+}
+
+function getCountOfContactsByState(state){
+    return addressBookArray.filter((contact) => contact.state == state).length;
+}
+
 let firstContact = new Contact("Devika", "Karpe", "#3ac910", "Pune", "Maharashtra", "411 028", "91 9481448524", "devu@gmail.com");
 let secondContact = new Contact("Aarti", "Shinde", "#6ac810", "Dadar", "Maharashtra", "312 098", "91 9898989897", "shindea@gmail.com");
 let thirdContact = new Contact("Rupali", "More", "#8105bc", "Banglore", "Karnataka", "550 864", "91 9485768574", "rupali@gmail.com");
-let fourthContact = new Contact("David", "Rose", "#8105bc", "SchittsCreek", "Canada", "550 864", "91 9465837465", "david@gmail.com");
+let fourthContact = new Contact("Megha", "Kale", "#8105bc", "Banglore", "Karnataka", "550 864", "91 9465837465", "meghak@gmail.com");
 
 try {
     addressBookArray.push(firstContact);
@@ -235,3 +243,6 @@ console.log(viewContactsByCity("Banglore"));
 
 console.log("\nView Contacts By State : Karnataka \n" );
 console.log(viewContactsByState("Karnataka"));
+
+console.log("\nNumber of Contacts residing in City : Banglore = " + getCountOfContactsByCity("Banglore"));
+console.log("\nNumber of Contacts residing in State : Karnataka = " + getCountOfContactsByState("Karnataka"));

@@ -195,6 +195,11 @@ function getCountOfContactsByState(state){
     return addressBookArray.filter((contact) => contact.state == state).length;
 }
 
+function sortAddressBookByName(){
+    addressBookArray.sort((firstPerson, secondPerson) => (firstPerson.firstName).localeCompare(secondPerson.firstName));
+    console.log(addressBookArray);
+}
+
 let firstContact = new Contact("Devika", "Karpe", "#3ac910", "Pune", "Maharashtra", "411 028", "91 9481448524", "devu@gmail.com");
 let secondContact = new Contact("Aarti", "Shinde", "#6ac810", "Dadar", "Maharashtra", "312 098", "91 9898989897", "shindea@gmail.com");
 let thirdContact = new Contact("Rupali", "More", "#8105bc", "Banglore", "Karnataka", "550 864", "91 9485768574", "rupali@gmail.com");
@@ -246,3 +251,6 @@ console.log(viewContactsByState("Karnataka"));
 
 console.log("\nNumber of Contacts residing in City : Banglore = " + getCountOfContactsByCity("Banglore"));
 console.log("\nNumber of Contacts residing in State : Karnataka = " + getCountOfContactsByState("Karnataka"));
+
+console.log("\nContacts In Alphabetical Order");
+sortAddressBookByName();

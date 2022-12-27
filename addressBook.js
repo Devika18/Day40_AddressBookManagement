@@ -200,6 +200,21 @@ function sortAddressBookByName(){
     console.log(addressBookArray);
 }
 
+function sortAddressBookByCity(){
+    addressBookArray.sort((firstPerson, secondPerson) => (firstPerson.city).localeCompare(secondPerson.city));
+    console.log(addressBookArray);
+}
+
+function sortAddressBookByState(){
+    addressBookArray.sort((firstPerson, secondPerson) => (firstPerson.state).localeCompare(secondPerson.state));
+    console.log(addressBookArray);
+}
+
+function sortAddressBookByZip(){
+    addressBookArray.sort((firstPerson, secondPerson) => (firstPerson.zip).localeCompare(secondPerson.zip));
+    console.log(addressBookArray);
+}
+
 let firstContact = new Contact("Devika", "Karpe", "#3ac910", "Pune", "Maharashtra", "411 028", "91 9481448524", "devu@gmail.com");
 let secondContact = new Contact("Aarti", "Shinde", "#6ac810", "Dadar", "Maharashtra", "312 098", "91 9898989897", "shindea@gmail.com");
 let thirdContact = new Contact("Rupali", "More", "#8105bc", "Banglore", "Karnataka", "550 864", "91 9485768574", "rupali@gmail.com");
@@ -239,7 +254,7 @@ console.log(addressBookArray);
 console.log("\nSearch Aarti In City - Dadar");
 console.log(searchContactByCity("Aarti", "Dadar"));
 
-console.log("\nSearch Aarti In State - Maharashtra");
+console.log("\nSearch Aarti In State - Maharashta");
 console.log(searchContactByState("Aarti", "Maharashtra"));
 
 
@@ -254,3 +269,12 @@ console.log("\nNumber of Contacts residing in State : Karnataka = " + getCountOf
 
 console.log("\nContacts In Alphabetical Order");
 sortAddressBookByName();
+
+console.log("\nContacts Sorted Using City");
+sortAddressBookByCity();
+
+console.log("\nContacts Sorted Using State");
+sortAddressBookByState();
+
+console.log("\nContacts Sorted Using Zip");
+sortAddressBookByZip();
